@@ -1,0 +1,37 @@
+const double DEFAULT_MAXIMUM_SCREEN = 356;
+const double DEFAULT_PADDING = 16.0;
+const double EIGHT_PADDING = 8.0;
+const double DEFAULT_BUTTON_HEIGHT = 46.0;
+const double DEFAULT_PADDING_LINE_TEXT = 8.0;
+const double DEFAULT_PADDING_INPUT_TEXT = 3.0;
+const double FAB_DIMENSION = 56.0;
+const double DEFAULT_FONT_SIZE = 16.0;
+const double MEDIUM_TEXT_SIZE = 14.0;
+const double LITTLE_TEXT = 12.0;
+const double DEFAULT_CARD_ELEVATION = 8.0;
+const double TITLE_CARD_TEXT_FONT_SIZE = 18.0;
+const double MIDDLE_TEXT_FONT_SIZE = 16.0;
+const double TITLE_EXTRA_FONT_SIZE = 20.0;
+const double EXTRA_HEIGHT_SIZE = 30.0;
+const double DEFAULT_ICON_TEXT_MARGIN = 3.0;
+const double DEFAULT_RATING_BAR_SIZE = 25.0;
+const double DEFAULT_RATING_BAR_PADDING = 2.0;
+const double DEFAULT_SHAPE_BORDER = 20.0;
+const double GRID_TILE_IMAGE_SHAPE_BORDER = 12.0;
+const double DEFAULT_CIRCLE_BORDER = 10.0;
+const double PROFILE_DEFAULT_IMAGE_SIZE = 160.0;
+const double PROFILE_TOP_IMAGE_PAGE_HEIGHT = 200.0;
+const double NOTIFICATION_ICON_SIZE = 75.0;
+const double MAXIMUM_INPUT_CONTAINER_WIDTH = 325.0;
+const double DEFAULT_PANEL_CLOSED_SIZE = 60.0;
+const double PANEL_OPENED_SIZE_DIVIDER = 1.7;
+const double PANEL_TOP_WIDGET_TOP_MARGIN = 45.0;
+const double DEFAULT_RISE_BUTTON_HEIGHT = 40.0;
+
+const double SPORT_PLACE_ACTIVITY_CARD_HEIGHT = 365.0;
+
+const double SMALL_ICON = 18.0;
+
+const double SMALL_PROGRESS_INDICATOR = 25.0;
+
+const double LINE_DIVIDER = 0.5;
