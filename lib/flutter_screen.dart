@@ -6,6 +6,7 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 
 export 'src/color/colors.dart';
+export 'src/intl/intl.dart';
 export 'src/constants/dimension.dart';
 export 'src/constants/pattern.dart';
 export 'src/extensions/build_context.dart';
