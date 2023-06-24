@@ -14,6 +14,6 @@ git submodule add https://github.com/eliasmeireles/flutter_screen.git  submodule
 - Add dependency
 
 ```yaml
-dart_net_work:
+flutter_screen:
   path: ./submodules/flutter_screen
 ```
