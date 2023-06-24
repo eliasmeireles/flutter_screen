@@ -19,5 +19,5 @@ abstract class ApplicationResponse {
     this.info,
   });
 
-  AlertResource errorResource(I18n i18n);
+  AlertResource errorResource(Intl i18n);
 }

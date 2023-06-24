@@ -10,7 +10,7 @@ const loginPath = "/login";
 const logoutPath = "/logout";
 
 abstract class BaseScreenNavigator {
-  final I18n i18n = GetIt.instance.get();
+  final Intl intl = GetIt.instance.get();
   late BuildContext context;
   final GlobalKey<NavigatorState> pageNavigatorKey =
       GlobalKey<NavigatorState>();
@@ -58,7 +58,7 @@ abstract class BaseScreenNavigator {
     required Function onTap,
   }) {
     return DefaultAlertPage(
-      message: message ?? i18n.could_not_complete_the_request,
+      message: message ?? intl.couldNotCompleteTheRequest,
       asset: alertIcon,
       iconButton: iconButton ?? FontAwesomeIcons.rotate,
       onTap: onTap.call,
@@ -103,7 +103,7 @@ abstract class BaseScreenNavigator {
     required BaseController controller,
   }) {
     final resource = AlertResource(
-      message: i18n.confirmationLogoutMessage,
+      message: intl.confirmationLogoutMessage,
       svgIcon: AssetsUtil.loadScreenViewSvgAlert("undraw_feeling_blue_4b7q"),
     );
     return alertBuild(
@@ -115,14 +115,14 @@ abstract class BaseScreenNavigator {
   }
 
   String alertResourceMessage<T extends ApplicationResponse>(T? response) {
-    return response?.errorResource(i18n).message ??
-        i18n.could_not_complete_the_request;
+    return response?.errorResource(intl).message ??
+        intl.couldNotCompleteTheRequest;
   }
 
   String alertResourceSvgIcon<T extends ApplicationResponse>(
       ApplicationResponse? response) {
     return AssetsUtil.loadScreenViewSvgAlert(
-      response?.errorResource(i18n).svgIcon ?? "undraw_server_down_s4lk_error",
+      response?.errorResource(intl).svgIcon ?? "undraw_server_down_s4lk_error",
     );
   }
 

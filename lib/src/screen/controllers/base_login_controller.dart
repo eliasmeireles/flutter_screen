@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screen/src/intl/intl.dart';
-import 'package:rxdart/subjects.dart';
 import 'package:flutter_screen/flutter_screen.dart';
+import 'package:rxdart/subjects.dart';
 
-abstract class BaseLoginController<T extends BaseScreenNavigator,
-    INTL extends Intl> extends BaseController<T, INTL> {
+abstract class BaseLoginController<T extends BaseScreenNavigator> extends BaseController<T> {
   final passwordTextController = TextEditingController();
   final emailTextController = TextEditingController();
 
@@ -37,5 +35,12 @@ abstract class BaseLoginController<T extends BaseScreenNavigator,
     clear();
     isLoggedIn.value = false;
     screenNavigator.pushReplacementNamed(loginPath);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    isObscuredText.close();
+    isInputValid.close();
   }
 }

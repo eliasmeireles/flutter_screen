@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screen/src/intl/intl.dart';
+import 'package:flutter_screen/flutter_screen.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flutter_screen/flutter_screen.dart';
 
-abstract class BaseController<T extends BaseScreenNavigator, INTL extends Intl> {
+abstract class BaseController<T extends BaseScreenNavigator> {
   final argument = BehaviorSubject<Object?>();
-  final INTL intl = GetIt.instance.get();
+  final Intl intl = GetIt.instance.get();
   final T screenNavigator = GetIt.instance.get<T>();
   final searchEnable = BehaviorSubject<bool>.seeded(false);
   final isLoggedIn = BehaviorSubject<bool>.seeded(false);
@@ -68,6 +67,8 @@ abstract class BaseController<T extends BaseScreenNavigator, INTL extends Intl> 
     searchEnable.close();
     searchController.dispose();
     logger.log(Level.debug, "$runtimeType -> was disposed.");
+    isLoggedIn.close();
+    argument.close();
   }
 
   void logoutRequest() {
