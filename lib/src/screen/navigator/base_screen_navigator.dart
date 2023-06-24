@@ -9,8 +9,8 @@ const splashPath = "/splash";
 const loginPath = "/login";
 const logoutPath = "/logout";
 
-abstract class BaseScreenNavigator {
-  final Intl intl = GetIt.instance.get();
+abstract class BaseScreenNavigator<INTL extends Intl> {
+  final INTL intl = GetIt.instance.get();
   late BuildContext context;
   final GlobalKey<NavigatorState> pageNavigatorKey =
       GlobalKey<NavigatorState>();

@@ -4,9 +4,9 @@ import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class BaseController<T extends BaseScreenNavigator> {
+abstract class BaseController<T extends BaseScreenNavigator, INTL extends Intl> {
   final argument = BehaviorSubject<Object?>();
-  final Intl intl = GetIt.instance.get();
+  final INTL intl = GetIt.instance.get();
   final T screenNavigator = GetIt.instance.get<T>();
   final searchEnable = BehaviorSubject<bool>.seeded(false);
   final isLoggedIn = BehaviorSubject<bool>.seeded(false);
