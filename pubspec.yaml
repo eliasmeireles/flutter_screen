@@ -31,5 +31,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/svg/background/
-    - assets/svg/alert/
+    - lib/assets/svg/background/
+    - lib/assets/svg/alert/
