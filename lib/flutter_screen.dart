@@ -2,7 +2,8 @@ library flutter_screen;
 
 export 'package:division/division.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';
-export 'package:injectable/injectable.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:flutter_svg/flutter_svg.dart';
 
 export 'src/color/colors.dart';
 export 'src/constants/dimension.dart';
