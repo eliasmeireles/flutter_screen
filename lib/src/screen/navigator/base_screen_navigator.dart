@@ -10,7 +10,7 @@ const loginPath = "/login";
 const logoutPath = "/logout";
 
 abstract class BaseScreenNavigator<INTL extends Intl> {
-  final INTL intl = GetIt.instance.get().cast();
+  final INTL intl = GetIt.instance.get<Intl>().cast();
   late BuildContext context;
   final GlobalKey<NavigatorState> pageNavigatorKey =
       GlobalKey<NavigatorState>();
