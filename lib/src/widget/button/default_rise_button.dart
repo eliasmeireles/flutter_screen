@@ -1,6 +1,7 @@
 import 'package:division/division.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen/src/constants/dimension.dart';
+import 'package:flutter_screen/src/extensions/build_context.dart';
 import 'package:flutter_screen/src/style/parent_styles.dart';
 
 class DefaultRiseButton extends StatelessWidget {
@@ -54,8 +55,8 @@ class DefaultRiseButton extends StatelessWidget {
   MaterialStateProperty<Color> buildButtonBackgroundColor(
       BuildContext context) {
     var color = enable
-        ? (backgroundColor ?? Theme.of(context).highlightColor)
-        : (disabledColor ?? Theme.of(context).disabledColor);
+        ? (backgroundColor ?? context.primaryColor)
+        : (disabledColor ?? context.primaryColor.withAlpha(95));
     return MaterialStateProperty.all<Color>(color);
   }
 }
