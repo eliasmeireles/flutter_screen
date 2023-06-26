@@ -5,7 +5,7 @@ class BaseTextButton extends StatelessWidget {
   final String text;
   final TextStyle? textStyle;
   final ButtonStyle? buttonStyle;
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const BaseTextButton({
     required this.text,
@@ -26,7 +26,7 @@ class BaseTextButton extends StatelessWidget {
             textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
                 color: ThemeData.light().textTheme.titleLarge?.color)),
           ),
-      onPressed: () => onPressed,
+      onPressed: onPressed,
       child: Text(
         text,
         style: textStyle ?? context.theme.textTheme.titleMedium,
