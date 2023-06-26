@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:flutter_screen/flutter_screen.dart';
+import 'package:get_it/get_it.dart';
 
 const initPath = "/";
 const errorAlertPath = "/error";
@@ -10,7 +10,7 @@ const loginPath = "/login";
 const logoutPath = "/logout";
 
 abstract class BaseScreenNavigator<INTL extends Intl> {
-  final INTL intl = GetIt.instance.get();
+  final INTL intl = GetIt.instance.get().cast();
   late BuildContext context;
   final GlobalKey<NavigatorState> pageNavigatorKey =
       GlobalKey<NavigatorState>();
