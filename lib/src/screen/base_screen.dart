@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:flutter_screen/src/screen/controllers/base_controller.dart';
+import 'package:get_it/get_it.dart';
 
 class BaseScreen<T extends BaseController> extends StatefulWidget {
   const BaseScreen({Key? key}) : super(key: key);
@@ -40,8 +40,13 @@ class BaseScreenState<T extends BaseController> extends State<BaseScreen> {
             settings: settings,
           ),
         ),
+        bottomNavigationBar: bottomNavigationBarBuilder(context),
       ),
     );
+  }
+
+  BottomNavigationBar? bottomNavigationBarBuilder(BuildContext context) {
+    return null;
   }
 
   AppBar? appBuild() => AppBar(
