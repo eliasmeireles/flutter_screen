@@ -7,7 +7,6 @@ export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 export 'src/color/colors.dart';
 export 'src/constants/dimension.dart';
-export 'src/constants/pattern.dart';
 export 'src/extensions/build_context.dart';
 export 'src/intl/intl.dart';
 export 'src/model/alert_resource.dart';
@@ -28,6 +27,7 @@ export 'src/style/parent_styles.dart';
 export 'src/style/shape_style.dart';
 export 'src/style/txt_style.dart';
 export 'src/util/assets_util.dart';
+export 'src/util/pattern_validation.dart';
 export 'src/widget/app_text_widget.dart';
 export 'src/widget/button/base_app_bar_button.dart';
 export 'src/widget/button/default_rise_button.dart';

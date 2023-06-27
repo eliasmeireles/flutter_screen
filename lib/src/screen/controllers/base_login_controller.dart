@@ -13,7 +13,7 @@ abstract class BaseLoginController<T extends BaseScreenNavigator,
   void onObscuredTextChange() => isObscuredText.value = !isObscuredText.value;
 
   bool get inputValidation =>
-      emailPattern.hasMatch((emailTextController.text.trim())) &&
+      emailTextController.isValidByWithPatternOf(emailPattern) &&
       passwordTextController.text.trim().length >= 6;
 
   void onStateChange() => isInputValid.value = inputValidation;

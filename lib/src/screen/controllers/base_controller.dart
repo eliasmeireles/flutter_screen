@@ -4,10 +4,14 @@ import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class BaseController<T extends BaseScreenNavigator, INTL extends Intl> {
+abstract class BaseController<T extends BaseScreenNavigator,
+    INTL extends Intl> {
+  INTL get intl => GetIt.instance.get<Intl>().cast();
+
   final argument = BehaviorSubject<Object?>();
-  final INTL intl = GetIt.instance.get<Intl>().cast();
+
   final T screenNavigator = GetIt.instance.get<T>();
+
   final searchEnable = BehaviorSubject<bool>.seeded(false);
   final isLoggedIn = BehaviorSubject<bool>.seeded(false);
 
@@ -84,4 +88,16 @@ abstract class BaseController<T extends BaseScreenNavigator, INTL extends Intl> 
   }
 
   doLogout() {}
+}
+
+extension TextEditingControllerValidation on TextEditingController {
+  bool isValid({min = 0}) {
+    return this.text.trim().length >= min;
+  }
+
+  bool hasValue() => this.text.trim().length > 0;
+
+  bool isValidByWithPatternOf(RegExp regExp) {
+    return regExp.hasMatch(this.text.trim());
+  }
 }

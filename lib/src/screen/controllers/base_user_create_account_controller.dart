@@ -22,8 +22,12 @@ abstract class BaseUserCreateAccountController<T extends BaseScreenNavigator,
   void onObscuredTextChange() => isObscuredText.value = !isObscuredText.value;
 
   bool get inputValidation =>
-      emailPattern.hasMatch((emailTextController.text.trim())) &&
-      passwordTextController.text.trim().length >= 6;
+      usernameTextController.isValidByWithPatternOf(usernamePattern) &&
+      cellphoneTextController.isValidByWithPatternOf(cellphoneNumberPattern) &&
+      phoneTextController.isValidByWithPatternOf(phoneNumberPattern) &&
+      cpfCnpjTextController.isValidByWithPatternOf(cpfCnpjPattern) &&
+      emailTextController.isValidByWithPatternOf(emailPattern) &&
+      passwordTextController.isValid(min: 6);
 
   void onStateChange() => isInputValid.value = inputValidation;
 
