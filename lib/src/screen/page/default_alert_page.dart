@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screen/src/style/txt_style.dart';
 import 'package:flutter_screen/src/util/assets_util.dart';
 import 'package:flutter_screen/src/widget/button/default_rise_button.dart';
 import 'package:flutter_screen/src/widget/button/rise_button_child_widget.dart';
 import 'package:flutter_screen/src/widget/default_alert_dialog.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DefaultAlertPage extends StatelessWidget {
   final String message;
@@ -25,7 +25,6 @@ class DefaultAlertPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultAlertDialog(
-      background: Theme.of(context).appBarTheme.backgroundColor,
       message: message,
       textMessageStyle: textStyleDefaultPadding
         ..clone()
