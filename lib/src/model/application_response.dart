@@ -7,6 +7,7 @@ abstract class ApplicationResponse {
   bool success;
   String message;
   int timestamp;
+  bool unverifiedAccount;
   Map<String, Object>? info;
 
   ApplicationResponse({
@@ -17,6 +18,7 @@ abstract class ApplicationResponse {
     required this.message,
     required this.timestamp,
     this.info,
+    this.unverifiedAccount = true,
   });
 
   AlertResource errorResource(Intl i18n);
