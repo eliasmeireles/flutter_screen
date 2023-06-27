@@ -30,11 +30,7 @@ class ScreenViewRouter {
   static final GlobalKey<NavigatorState> globalNavigatorKey =
       GlobalKey<NavigatorState>();
 
-  static String initialRoute = 'companies-screen';
-  static String login = 'login-screen';
-  static String userProfile = 'user-profile-screen';
-  static String userProfileUpdateScreen = 'user-profile-update-screen';
-  static String newAccountScreen = 'new-account-screen';
+  static String initialRoute = '/';
 
   ScreenViewRouter.__();
 
@@ -45,7 +41,9 @@ class ScreenViewRouter {
   }
 
   static PageRouteBuilder onGenerateRoute(settings) {
-    Widget? screen = ScreenViewRouter.screens[settings.name];
+    Widget? screen = ScreenViewRouter.screens[settings.name] ??
+        ScreenViewRouter.screens[initialRoute];
+
     return PageRouteBuilder(
       settings: settings,
       pageBuilder: (_, __, ___) => screen!,
