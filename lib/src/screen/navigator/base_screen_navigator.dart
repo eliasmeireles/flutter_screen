@@ -180,4 +180,31 @@ abstract class BaseScreenNavigator<INTL extends Intl> {
   bool isLogoutPage() => currentPage == logoutPath;
 
   void screenPop() => saveGlobalNavigator((navigator) => navigator.pop());
+
+  /// Get root [NavigatorState] for navigate with page into a screen
+  NavigatorState pageNavigator() {
+    return Navigator.of(context);
+  }
+}
+
+extension BaseScreenNavigatorExt on BaseScreenNavigator {
+  void pushNamedScreenAndRemoveUntil(String path) {
+    final context = ScreenViewRouter.globalNavigatorKey.currentContext;
+    if (context != null) {
+      Navigator.of(context).pushNamedAndRemoveUntil(path, (route) => false);
+    }
+  }
+
+  void pushReplacementNamedScreen(String path) {
+    final context = ScreenViewRouter.globalNavigatorKey.currentContext;
+    if (context != null) {
+      Navigator.of(context).pushReplacementNamed(path);
+    }
+  }
+
+  /// Get root [NavigatorState] for navigate with screen
+  NavigatorState? rootNavigatorState() {
+    final context = ScreenViewRouter.globalNavigatorKey.currentContext;
+    return context != null ? Navigator.of(context) : null;
+  }
 }
