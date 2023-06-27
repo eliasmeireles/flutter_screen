@@ -45,7 +45,7 @@ class BaseScreenState<T extends BaseController> extends State<BaseScreen> {
     );
   }
 
-  BottomNavigationBar? bottomNavigationBarBuilder(BuildContext context) {
+  Widget? bottomNavigationBarBuilder(BuildContext context) {
     return null;
   }
 
