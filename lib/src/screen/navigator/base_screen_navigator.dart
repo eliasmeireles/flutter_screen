@@ -87,11 +87,8 @@ abstract class BaseScreenNavigator<INTL extends Intl> {
     required BaseController controller,
     Function? onTap,
   }) {
-    final response = settings.arguments as ApplicationResponse?;
-    final resource = AlertResource(
-      message: alertResourceMessage(response),
-      svgIcon: alertResourceSvgIcon(response),
-    );
+    final response = settings.arguments as ApplicationResponse;
+    final resource = errorAlertResourceBuilder(response);
     return alertBuild(
       onTap: onTap ?? canPopPage,
       message: resource.message,
@@ -99,18 +96,29 @@ abstract class BaseScreenNavigator<INTL extends Intl> {
     );
   }
 
+  AlertResource errorAlertResourceBuilder(ApplicationResponse response) {
+    return AlertResource(
+      message: alertResourceMessage(response),
+      svgIcon: alertResourceSvgIcon(response),
+    );
+  }
+
   Widget logoutAlertBuilder({
     required BaseController controller,
   }) {
-    final resource = AlertResource(
-      message: intl.confirmationLogoutMessage,
-      svgIcon: AssetsUtil.loadScreenViewSvgAlert("undraw_feeling_blue_4b7q"),
-    );
+    final resource = logoutAlertResourceBuilder();
     return alertBuild(
       onTap: controller.doLogout,
       iconButton: Icons.exit_to_app,
       message: resource.message,
       alertIcon: resource.svgIcon,
+    );
+  }
+
+  AlertResource logoutAlertResourceBuilder() {
+    return AlertResource(
+      message: intl.confirmationLogoutMessage,
+      svgIcon: AssetsUtil.loadScreenViewSvgAlert("undraw_feeling_blue_4b7q"),
     );
   }
 
