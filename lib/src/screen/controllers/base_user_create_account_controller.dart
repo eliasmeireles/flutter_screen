@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screen/flutter_screen.dart';
-import 'package:rxdart/subjects.dart';
+import 'package:rxdart/rxdart.dart';
 
-abstract class BaseLoginController<T extends BaseScreenNavigator,
+abstract class BaseUserCreateAccountController<T extends BaseScreenNavigator,
     INTL extends Intl> extends BaseController<T, INTL> {
-  final passwordTextController = TextEditingController();
+  final usernameTextController = TextEditingController();
   final emailTextController = TextEditingController();
+  final cellphoneTextController = TextEditingController();
+  final phoneTextController = TextEditingController();
+  final cpfCnpjTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
 
   final isObscuredText = BehaviorSubject<bool>.seeded(true);
   final isInputValid = BehaviorSubject<bool>.seeded(false);
+
+  final cpfCnpjMaskFormatter =
+      TextInputMask(mask: [cpfMask, cnpjMask], reverse: true);
+  final phoneNumberMaskFormatter =
+      TextInputMask(mask: [cellphoneMask, phoneMask]);
 
   void onObscuredTextChange() => isObscuredText.value = !isObscuredText.value;
 
@@ -17,26 +26,6 @@ abstract class BaseLoginController<T extends BaseScreenNavigator,
       passwordTextController.text.trim().length >= 6;
 
   void onStateChange() => isInputValid.value = inputValidation;
-
-  void login();
-
-  void loginSuccessful() {
-    clear();
-    isLoggedIn.value = true;
-  }
-
-  void clear() {
-    emailTextController.clear();
-    passwordTextController.clear();
-  }
-
-  @override
-  @mustCallSuper
-  doLogout() {
-    clear();
-    isLoggedIn.value = false;
-    screenNavigator.pushReplacementNamed(loginPath);
-  }
 
   @override
   void dispose() {
